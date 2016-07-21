@@ -1,0 +1,307 @@
+@import url('http://weloveiconfonts.com/api/?family=entypo');
+/* entypo */
+[class*="entypo-"]:before {
+    font-family: 'entypo', sans-serif;
+}
+
+//green: 496C5D;
+
+$base:           #4B546A;
+$base-white:     lighten($base, 90%);
+$base-off-white: lighten($base, 60%);
+$base-lighter:   lighten($base, 50%);
+$base-light:     lighten($base, 20%);
+$base-medium:    lighten($base, 10%);
+$base-dark:      darken($base, 20%);
+$base-darker:    darken($base, 22%);
+$base-saturated: adjust-color($base, $saturation: 70%);
+$highlight:      invert($base-saturated);
+
+$body-font-family: "Lato", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+$sec-font: "Lato", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+
+$header-z: 500;
+
+html,
+body {
+    font-family:      $body-font-family !important;
+    color:            $base-darker;
+    background-color: $base-off-white;
+}
+
+input {
+    &:focus {
+        border-color: $base-saturated !important;
+    }
+}
+
+.container {
+    @include grid-row;
+}
+
+.content-box {
+    width:    100%;
+    position: relative;
+}
+
+.inverted {
+    color:            $base-off-white;
+    background-color: $base-dark;
+}
+
+header {
+    background-color: $base-darker;
+    color:            $base-lighter;
+    position:         fixed;
+    top:              0;
+    width:            100%;
+    z-index:          $header-z;
+    padding-top:      $global-padding / 2;
+    padding-bottom:   $global-padding / 2;
+
+    // /* Larger than phablet */
+    // @media (min-width: 550px) {
+    //     nav {
+    //         font-size: 1.6rem;
+    //     }
+    //     .header-quote {
+    //         font-size: 2rem;
+    //         padding:   1.4rem;
+    //     }
+    // }
+    // /* Larger than phablet */
+    // @media (min-width: 750px) {
+    //     nav {
+    //         float:     right;
+    //         font-size: 1.4rem;
+    //     }
+    //     .header-quote {
+    //         float:     left;
+    //         font-size: 1.4rem;
+    //     }
+    // }
+}
+
+.header-profile {
+    .header-pic {
+        @include grid-column(2, 10);
+        img {
+            border-radius: 50% 50%;
+        }
+    }
+
+    .header-quote {
+        @include grid-column(10, 10);
+        font-size: 0.9rem;
+        // padding-top:    1rem;
+        // padding-bottom: 0.5rem;
+    }
+}
+// NAV //
+.header-nav {
+    @include grid-column(10, 10);
+
+    .header-links {
+        .header-nav__link {
+            font-size:       0.8rem;
+            color:           $base-light;
+            text-decoration: none;
+            margin-right:    10px;
+            &:hover {
+                color:           $base-white;
+                text-decoration: none;
+            }
+        }
+    }
+
+    // /* Larger than tablet */
+    // @media (min-width: 750px) {
+    //     padding-top: 1.4rem;
+    // }
+}
+
+.intro {
+    padding-top:      4rem;
+    padding-bottom:   4rem;
+    z-index: 0;
+
+    h1 {
+        color:     $base-lighter;
+        font-size: 8rem;
+    }
+
+    h3 {
+        color: $base-lighter;
+    }
+
+    button {
+        @include button();
+        margin-top: 2rem;
+        border:     1px solid $base-darker;
+
+        color:            $base-off-white;
+        background-color: $base-saturated;
+
+        &:hover {
+            color:            $base-darker;
+            background-color: $base-lighter;
+        }
+    }
+
+    .intro-content {
+        @include grid-row;
+        z-index:  2;
+        position: relative;
+    }
+
+    .intro-text {
+        @include grid-column;
+    }
+
+    .intro-over {
+        font-size: 100rem;
+        position:  absolute;
+        right:     0;
+        bottom:    -75rem;
+        opacity:   0.05;
+        z-index:   1;
+    }
+
+    /* Larger than phablet */
+    @media (min-width: 550px) {
+        h1 {
+            font-size: 18rem;
+        }
+    }
+}
+
+.tools {
+    color:            $base-white;
+    padding-top:      6rem;
+    padding-bottom:   3rem;
+    background-color: $base-dark;
+
+    p {
+        font-size:     2rem;
+        font-weight:   300;
+        margin-bottom: 3rem;
+    }
+
+    td {
+        border-bottom: none;
+        font-size:     1.4rem;
+    }
+}
+
+.workplaces {
+    position:      relative;
+    z-index:       1;
+    margin-bottom: 6rem;
+
+    .row {
+        margin-bottom: 0;
+    }
+
+    .workplaces-intro {
+        padding-top:      4rem;
+        color:            $base-darker;
+        background-color: $base-white;
+
+        h4 {
+            line-height: 1.5;
+        }
+    }
+
+    .workplaces-wrap {
+        padding-top:      1rem;
+        padding-bottom:   0.5rem;
+        background-color: $base-white;
+        color:            $base-dark;
+        border-top:       1px solid $base-off-white;
+        overflow-y:       hidden;
+
+        .workplaces-text {
+            margin-top: 1rem;
+        }
+
+        &.expanded {
+            padding-top:    3rem;
+            padding-bottom: 1.5rem;
+
+            .workplaces-text {
+                display: block;
+            }
+        }
+    }
+
+    .workplaces-item {
+
+        .workplaces-item__image {
+            img {
+                border-radius: 50% 50%;
+                border:        1px solid $base-dark;
+                width:         100%;
+                height:        auto;
+                max-width:     64px;
+            }
+        }
+
+        .workplaces-item__title {
+            h4 {
+                margin-bottom: 0;
+            }
+        }
+
+        .workplaces-item__details {
+            margin-bottom: 0.3rem;
+            font-size:     0.8em;
+            color:         $base-medium;
+        }
+
+        /* Larger than tablet */
+        @media (min-width: 750px) {
+            .workplaces-item__details {
+                text-align: right;
+                margin-top: 2rem;
+            }
+
+            .workplaces-item__title {
+                margin-top: 1rem;
+            }
+        }
+    }
+}
+
+.closing {
+    padding-top: 5rem;
+    padding-bottom: 1rem;
+
+    button {
+        margin-top:       2.9rem;
+        color:            $base-lighter;
+        background-color: $base-saturated;
+        border: 0;
+
+        &.valid {
+            background-color: green;
+        }
+
+    }
+}
+
+footer {
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+
+    h6 {
+        margin: 0;
+        font-weight: 500;
+        font-size: 1.3rem;
+    }
+}
+
+@include breakpoint(small) {}
+@include breakpoint(medium) {}
+@include breakpoint(large) {}
+@include breakpoint(xlarge) {}
+@include breakpoint(xxlarge) {}
