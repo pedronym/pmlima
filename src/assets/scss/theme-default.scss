@@ -4,8 +4,7 @@
     font-family: 'entypo', sans-serif;
 }
 
-//green: 496C5D;
-
+/* VARIABLES */
 $base:           #4B546A;
 $base-white:     lighten($base, 90%);
 $base-off-white: lighten($base, 60%);
@@ -22,9 +21,10 @@ $sec-font: "Lato", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
 
 $header-z: 500;
 
+/* GLOBAL SETTINGS */
 html,
 body {
-    font-family:      $body-font-family !important;
+    font-family:      $body-font-family;
     color:            $base-darker;
     background-color: $base-off-white;
 }
@@ -39,9 +39,14 @@ input {
     @include grid-row;
 }
 
+.inner {
+    @include grid-column(12);
+}
+
 .content-box {
     width:    100%;
     position: relative;
+    margin:   $global-margin 0;
 }
 
 .inverted {
@@ -49,6 +54,20 @@ input {
     background-color: $base-dark;
 }
 
+.button {
+    margin-top: 2rem;
+    border:     1px solid $base-darker;
+
+    color:            $base-off-white;
+    background-color: $base-saturated;
+
+    &:hover {
+        color:            $base-darker;
+        background-color: $base-lighter;
+    }
+}
+
+/* HEADER */
 header {
     background-color: $base-darker;
     color:            $base-lighter;
@@ -97,6 +116,7 @@ header {
         // padding-bottom: 0.5rem;
     }
 }
+
 // NAV //
 .header-nav {
     @include grid-column(10, 10);
@@ -120,10 +140,11 @@ header {
     // }
 }
 
+/* INTRO */
 .intro {
+    z-index:          0;
     padding-top:      4rem;
-    padding-bottom:   4rem;
-    z-index: 0;
+    padding-bottom:   2rem;
 
     h1 {
         color:     $base-lighter;
@@ -134,20 +155,6 @@ header {
         color: $base-lighter;
     }
 
-    button {
-        @include button();
-        margin-top: 2rem;
-        border:     1px solid $base-darker;
-
-        color:            $base-off-white;
-        background-color: $base-saturated;
-
-        &:hover {
-            color:            $base-darker;
-            background-color: $base-lighter;
-        }
-    }
-
     .intro-content {
         @include grid-row;
         z-index:  2;
@@ -155,7 +162,15 @@ header {
     }
 
     .intro-text {
-        @include grid-column;
+        @include grid-column(12);
+
+        .cv-button {
+            margin-top: 1rem;
+
+            span {
+                margin-right: $global-margin / 4;
+            }
+        }
     }
 
     .intro-over {
@@ -175,66 +190,38 @@ header {
     }
 }
 
-.tools {
-    color:            $base-white;
-    padding-top:      6rem;
-    padding-bottom:   3rem;
-    background-color: $base-dark;
-
-    p {
-        font-size:     2rem;
-        font-weight:   300;
-        margin-bottom: 3rem;
-    }
-
-    td {
-        border-bottom: none;
-        font-size:     1.4rem;
-    }
-}
-
+/* EXPERIENCE */
 .workplaces {
-    position:      relative;
-    z-index:       1;
-    margin-bottom: 6rem;
-
-    .row {
-        margin-bottom: 0;
-    }
 
     .workplaces-intro {
-        padding-top:      4rem;
+        padding-top:      1rem;
+        padding-bottom:   1rem;
         color:            $base-darker;
         background-color: $base-white;
-
-        h4 {
-            line-height: 1.5;
-        }
     }
 
     .workplaces-wrap {
-        padding-top:      1rem;
-        padding-bottom:   0.5rem;
-        background-color: $base-white;
+
+        &:nth-child(odd) {
+            background-color: $base-white;
+        }
+
+        &:nth-child(even) {
+            background-color: $base-off-white;
+        }
+
+        padding-top:      2rem;
+        padding-bottom:   1.5rem;
         color:            $base-dark;
-        border-top:       1px solid $base-off-white;
-        overflow-y:       hidden;
+        border-top:       1px solid $base-lighter;
 
         .workplaces-text {
             margin-top: 1rem;
         }
-
-        &.expanded {
-            padding-top:    3rem;
-            padding-bottom: 1.5rem;
-
-            .workplaces-text {
-                display: block;
-            }
-        }
     }
 
     .workplaces-item {
+        @include grid-row(12);
 
         .workplaces-item__image {
             img {
@@ -247,12 +234,12 @@ header {
         }
 
         .workplaces-item__title {
-            h4 {
-                margin-bottom: 0;
-            }
+            @include grid-column(12);
         }
 
         .workplaces-item__details {
+            @include grid-column(12);
+
             margin-bottom: 0.3rem;
             font-size:     0.8em;
             color:         $base-medium;
@@ -272,21 +259,37 @@ header {
     }
 }
 
-.closing {
-    padding-top: 5rem;
-    padding-bottom: 1rem;
+/* TOOLS */
+.tools {
+    color:            $base-white;
+    padding-top:      6rem;
+    padding-bottom:   3rem;
+    background-color: $base-dark;
 
-    button {
-        margin-top:       2.9rem;
-        color:            $base-lighter;
-        background-color: $base-saturated;
-        border: 0;
-
-        &.valid {
-            background-color: green;
-        }
-
+    p {
+        font-size:     2rem;
+        font-weight:   300;
+        margin-bottom: 3rem;
     }
+
+    td {
+        border-bottom: none;
+        font-size:     1.4rem;
+    }
+}
+
+.closing {
+    // button {
+    //     margin-top:       2.9rem;
+    //     color:            $base-lighter;
+    //     background-color: $base-saturated;
+    //     border: 0;
+    //
+    //     &.valid {
+    //         background-color: green;
+    //     }
+    //
+    // }
 }
 
 footer {
