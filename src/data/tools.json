@@ -1,0 +1,115 @@
+{
+    "text": "My interests revolve around designing, maintaining and perfecting the user interaction side of applications and websites. Usually I work with a HTML/CSS/JavaScript stack that involves common tools such as:",
+    "toolgroups": [
+        [
+            {
+                "name": "HTML5",
+                "description": "HTML5 is the latest evolution of the standard that defines HTML.",
+                "link": "https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5"
+            },
+            {
+                "name": "CSS3",
+                "description": "CSS3 is the latest evolution of the Cascading Style Sheets language and aims at extending CSS2.1.",
+                "link": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3"
+            },
+            {
+                "name": "JavaScript",
+                "description": "JavaScript (JS) is a lightweight, interpreted, programming language with first-class functions.",
+                "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+            },
+            {
+                "name": "jQuery",
+                "description": "jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers.",
+                "link": "https://jquery.com/"
+            }
+        ],
+        [
+            {
+                "name": "Sass",
+                "description": "Sass is the most mature, stable, and powerful professional grade CSS extension language in the world.",
+                "link": "http://sass-lang.com/"
+            },
+            {
+                "name": "Less",
+                "description": "Less (sometimes stylized as LESS) is a dynamic style sheet language that can be compiled into Cascading Style Sheets (CSS).",
+                "link": "http://lesscss.org/"
+            },
+            {
+                "name": "Compass",
+                "description": "Sass is an extension of CSS3 which adds nested rules, variables, mixins, selector inheritance, and more.",
+                "link": "http://compass-style.org/"
+            },
+            {
+                "name": "Bourbon",
+                "description": "A simple and lightweight mixin library for Sass.",
+                "link": "http://bourbon.io/"
+            }
+        ],
+        [
+            {
+                "name": "Bootstrap",
+                "description": "Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web.",
+                "link": "http://getbootstrap.com/"
+            },
+            {
+                "name": "Foundation",
+                "description": "A Framework for any device, medium, and accessibility. Foundation is a family of responsive front-end frameworks that make it easy to design beautiful responsive websites, apps and emails that look amazing on any device.",
+                "link": "http://foundation.zurb.com/"
+            },
+            {
+                "name": "Skeleton",
+                "description": "A dead simple, responsive boilerplate.",
+                "link": "http://getskeleton.com/"
+            },
+            {
+                "name": "Neat",
+                "description": "A lightweight semantic grid framework built with Sass.",
+                "link": "http://neat.bourbon.io/"
+            }
+        ],
+        [
+            {
+                "name": "Handlebars",
+                "description": "Handlebars provides the power necessary to let you build semantic templates effectively with no frustration.",
+                "link": "http://handlebarsjs.com/"
+            },
+            {
+                "name": "Mustache",
+                "description": "Mustache is a logic-less template syntax. It can be used for HTML, config files, source code - anything. It works by expanding tags in a template using values provided in a hash or object.",
+                "link": "https://mustache.github.io/"
+            },
+            {
+                "name": "Dust",
+                "description": "Dust is a Javascript templating engine. It inherits its look from the ctemplate family of languages, and is designed to run asynchronously on both the server and the browser.",
+                "link": "http://www.dustjs.com/"
+            },
+            {
+                "name": "Pug",
+                "description": "Pug is a high performance template engine heavily influenced by Haml and implemented with JavaScript for Node.js and browsers.",
+                "link": "http://jade-lang.com/"
+            }
+        ],
+        [
+            {
+                "name": "Node",
+                "description": "Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient.",
+                "link": "https://nodejs.org/en/"
+            },
+            {
+                "name": "Bower",
+                "description": "A package manager for the web",
+                "link": "https://bower.io/"
+            },
+            {
+                "name": "Grunt",
+                "description": "Automation, performing repetitive tasks like minification, compilation, unit testing and linting.",
+                "link": "http://gruntjs.com/"
+            },
+            {
+                "name": "Gulp",
+                "description": "The streaming build system. Automate and enhance your workflow",
+                "link": "http://gulpjs.com/"
+            }
+        ]
+    ]
+}

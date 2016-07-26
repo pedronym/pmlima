@@ -19,7 +19,10 @@ $highlight:      invert($base-saturated);
 $body-font-family: "Lato", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
 $sec-font: "Lato", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
 
-$header-z: 500;
+/* Z-INDEXES */
+$header-z:       500;
+$relative-below: 0;
+$relative-above: 1;
 
 /* GLOBAL SETTINGS */
 html,
@@ -46,7 +49,7 @@ input {
 .content-box {
     width:    100%;
     position: relative;
-    margin:   $global-margin 0;
+    margin:   0;
 }
 
 .inverted {
@@ -69,14 +72,17 @@ input {
 
 /* HEADER */
 header {
+    @extend .shadow;
     background-color: $base-darker;
     color:            $base-lighter;
     position:         fixed;
     top:              0;
     width:            100%;
+    height:           74px;
     z-index:          $header-z;
     padding-top:      $global-padding / 2;
     padding-bottom:   $global-padding / 2;
+    box-shadow:       2px 2px 2px (0.5, 0.5, 0.5, 0.2);
 
     // /* Larger than phablet */
     // @media (min-width: 550px) {
@@ -102,31 +108,39 @@ header {
 }
 
 .header-profile {
+    @include grid-column(12, 10);
+
     .header-pic {
-        @include grid-column(2, 10);
+        float:left;
+        width: 68px;
         img {
             border-radius: 50% 50%;
+            max-height: 58px;
         }
     }
 
     .header-quote {
-        @include grid-column(10, 10);
+        float: left;
         font-size: 0.9rem;
-        // padding-top:    1rem;
-        // padding-bottom: 0.5rem;
+        line-height: 58px;
     }
 }
 
 // NAV //
 .header-nav {
-    @include grid-column(10, 10);
+    @include grid-column(12, 10);
+    background-color: $base-darker;
+    padding: 0.5rem 0;
 
     .header-links {
+
         .header-nav__link {
             font-size:       0.8rem;
             color:           $base-light;
             text-decoration: none;
+            text-align:      center;
             margin-right:    10px;
+
             &:hover {
                 color:           $base-white;
                 text-decoration: none;
@@ -142,9 +156,9 @@ header {
 
 /* INTRO */
 .intro {
-    z-index:          0;
-    padding-top:      4rem;
-    padding-bottom:   2rem;
+    z-index:        $relative-below;
+    padding-top:    1rem;
+    padding-bottom: 3rem;
 
     h1 {
         color:     $base-lighter;
@@ -179,13 +193,13 @@ header {
         right:     0;
         bottom:    -75rem;
         opacity:   0.05;
-        z-index:   1;
+        z-index:   $relative-above;
     }
 
     /* Larger than phablet */
     @media (min-width: 550px) {
         h1 {
-            font-size: 18rem;
+            font-size: 8rem;
         }
     }
 }
@@ -261,20 +275,20 @@ header {
 
 /* TOOLS */
 .tools {
-    color:            $base-white;
     padding-top:      6rem;
     padding-bottom:   3rem;
     background-color: $base-dark;
 
     p {
+        color:            $base-white;
         font-size:     2rem;
         font-weight:   300;
         margin-bottom: 3rem;
     }
 
-    td {
-        border-bottom: none;
-        font-size:     1.4rem;
+    table {
+        @include table($base-off-white);
+        @include table-stack(true);
     }
 }
 
@@ -308,3 +322,9 @@ footer {
 @include breakpoint(large) {}
 @include breakpoint(xlarge) {}
 @include breakpoint(xxlarge) {}
+
+.shadow {
+    -webkit-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.25);
+    box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.25);
+}
