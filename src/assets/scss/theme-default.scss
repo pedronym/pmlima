@@ -1,8 +1,8 @@
-@import url('http://weloveiconfonts.com/api/?family=entypo');
-/* entypo */
-[class*="entypo-"]:before {
-    font-family: 'entypo', sans-serif;
-}
+// @import url('http://weloveiconfonts.com/api/?family=entypo');
+// /* entypo */
+// [class*="entypo-"]:before {
+//     font-family: 'entypo', sans-serif;
+// }
 
 /* VARIABLES */
 $base:           #4B546A;
@@ -17,12 +17,21 @@ $base-saturated: adjust-color($base-medium, $saturation: 80%, $lightness: 15%);
 $highlight:      adjust-hue($base-saturated, 160deg);//invert($base-saturated);
 
 $body-font-family: "Lato", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
-$sec-font: "Lato", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+$default-space: 0.5rem;
 
 /* Z-INDEXES */
 $header-z:       500;
 $relative-below: 0;
 $relative-above: 1;
+
+/* MIXINS */
+@mixin space-below($ratio:1) {
+    margin-bottom: $default-space * $ratio;
+}
+
+@mixin space-above($ratio:1) {
+    margin-top: $default-space * $ratio;
+}
 
 /* GLOBAL SETTINGS */
 html,
@@ -87,6 +96,10 @@ a.alt {
 .intro-downloads {
     @include button-group-expand(a);
     margin-top: 2rem;
+
+    @include breakpoint(medium) {
+        @include button-group(a);
+    }
 }
 
 $header-padding: 0.3rem;
@@ -107,29 +120,40 @@ header {
 }
 
 .header-profile {
-    @include breakpoint(small) {
+    @include grid-col(12);
 
+    @include breakpoint(large) {
+        @include grid-col(6);
     }
-
-    @include grid-col(12, 10);
-
     .profile-pic {
-        @include show-for(medium);
+        @include show-for(xlarge);
 
         @include breakpoint(medium) {
-            @include grid-col(2, 10);
+            @include grid-col(1, 0);
+
+            @include breakpoint(large) {
+                @include grid-col(2, 0);
+            }
 
             img {
                 max-height: 50px;
-                max-width: 50px;
+                max-width:  50px;
             }
         }
     }
 
     .header-quote {
-        @include breakpoint(medium) {
-            @include grid-col(10, 10);
-            text-align: right;
+        @include grid-row(12);
+
+        @include breakpoint(large) {
+            @include grid-col(10, 0);    
+        }
+
+        @include breakpoint(xlarge) {
+            @include grid-col(5, 0);
+            @include grid-column-end;
+            float: left;
+            text-align: left;
             font-size: 1rem;
         }
 
@@ -151,16 +175,17 @@ header {
 
 // NAV //
 .header-nav {
-    @include grid-col(12);
+    @include grid-col(6, 0);
     @include show-for(large);
 
     background-color: $base-darker;
     padding: 0.5rem 0;
 
     .header-links {
+        @include grid-col(12);
 
         .header-nav__link {
-            @include grid-col(12);
+            @include grid-col(4, 0);
             font-size:       0.8rem;
             color:           $base-light;
             text-decoration: none;
@@ -182,14 +207,20 @@ header {
 /* INTRO */
 .intro {
     z-index:        $relative-below;
-    padding-top:    5rem;
-    padding-bottom: 3rem;
+    padding-top:    4rem;
+    padding-bottom: 4rem;
 
     .intro-huge {
-        transition: color 4s ease-in-out;
-        color:     $base-light;
-        font-size: 7rem;
+        transition:  color 4s ease-in-out;
+        color:       $base-light;
+        font-weight: 700;
+        font-size:   7rem;
         text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+
+        @include breakpoint(480) {
+            font-weight: 400;
+            font-size:   10rem;
+        }
     }
 
     h3 {
@@ -220,18 +251,10 @@ header {
         opacity:   0.05;
         z-index:   $relative-above;
     }
-
-    /* Larger than phablet */
-    @media (min-width: 550px) {
-        h1 {
-            font-size: 8rem;
-        }
-    }
 }
 
 /* EXPERIENCE */
 .workplaces {
-    padding-top: 1rem;
     text-align: center;
 
     .profile-pic {
@@ -243,13 +266,16 @@ header {
     }
 
     .workplaces-intro {
-        padding-top:      1rem;
-        padding-bottom:   1rem;
         color:            $base-darker;
         background-color: $base-white;
     }
 
+    .workplaces-intro__bottom {
+        @include space-above(4);
+    }
+
     .workplaces-wrap {
+        width: 100%;
 
         &:nth-child(even) {
             background-color: $base-white;
@@ -272,16 +298,6 @@ header {
     .workplaces-item {
         @include grid-row(12);
 
-        .workplaces-item__image {
-            img {
-                border-radius: 50% 50%;
-                border:        1px solid $base-dark;
-                width:         100%;
-                height:        auto;
-                max-width:     64px;
-            }
-        }
-
         .workplaces-item__title {
             @include grid-col(12);
         }
@@ -293,18 +309,6 @@ header {
             font-size:     0.8em;
             color:         $base-medium;
         }
-
-        // /* Larger than tablet */
-        // @media (min-width: 750px) {
-        //     .workplaces-item__details {
-        //         text-align: right;
-        //         margin-top: 2rem;
-        //     }
-        //
-        //     .workplaces-item__title {
-        //         margin-top: 1rem;
-        //     }
-        // }
     }
 }
 
@@ -314,11 +318,15 @@ header {
     padding-top:      2rem;
     background-color: $base-dark;
 
+    .tools-intro {
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
     p {
         color:            $base-white;
         font-size:     1.4rem;
         font-weight:   300;
-        margin-bottom: 3rem;
     }
 
     table {
@@ -340,17 +348,6 @@ header {
     padding: 2rem 0;
     text-align: center;
     color: $base-dark;
-    // button {
-    //     margin-top:       2.9rem;
-    //     color:            $base-lighter;
-    //     background-color: $base-saturated;
-    //     border: 0;
-    //
-    //     &.valid {
-    //         background-color: green;
-    //     }
-    //
-    // }
 }
 
 footer {
@@ -362,14 +359,20 @@ footer {
     }
 }
 
-@include breakpoint(small) {}
-@include breakpoint(medium) {}
-@include breakpoint(large) {}
-@include breakpoint(xlarge) {}
-@include breakpoint(xxlarge) {}
+/* HELPER CLASSES */
+.pad-y {
+    padding-top:      0.5rem;
+    padding-bottom:   0.5rem;
+}
 
 .shadow {
     -webkit-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.25);
     -moz-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.25);
     box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.25);
 }
+
+@include breakpoint(small) {}
+@include breakpoint(medium) {}
+@include breakpoint(large) {}
+@include breakpoint(xlarge) {}
+@include breakpoint(xxlarge) {}

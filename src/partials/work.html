@@ -2,32 +2,28 @@
 <section class="content-box workplaces">
 
     {{> profile-pic}}
-    
+
     <!-- INTRO -->
     <div class="workplaces-intro container">
-        <div class="inner">
 
+        <div class="inner workplaces-intro__top">
             <h5>A little bit about my experience:</h5>
-
             <br>
 
             <h3>For the last 10 years I've been working both on the design phase of websites as well as actually implementing the front-end functionality.</h3>
-
             <br>
 
-            <h3>Recently my daily work consists of HTML templating, CSS/SCSS styling and doing both server-side and client-side modular javascript logic.</h3>
+            <h3>Recently my daily work consists of HTML templating, CSS/SCSS styling and doing both server-side and client-side JavaScript.</h3>
+        </div>
 
-            <br>
-
-            <h6>Here are some of the places I work or worked for:</h6>
-
-            <br>
-
+        <div class="inner workplaces-intro__bottom inverted pad-y space-above">
+            <h1 class="">Here are some of the places I work or worked for:</h1>
         </div>
     </div>
 
+    <!-- JOBS -->
     {{#each experience.jobs}}
-    <div class="workplaces-wrap container">
+    <div class="workplaces-wrap">
         <div class="row workplaces-item">
             <div class="workplaces-item__title">
                 <h1>{{this.name}}</h1>
