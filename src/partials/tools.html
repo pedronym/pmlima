@@ -8,20 +8,20 @@
 
     </div>
 
-    <div class="container">
-        <table class="tools-table inner">
-            <tbody>
-                {{#each tools.toolgroups}}
-                <tr>
-                    {{#each this}}
-                    <td data-tooltip aria-haspopup="true" class="has-tip top" data-disable-hover="false" title="{{this.description}}">
-                        <a href="{{this.link}}">{{this.name}}</a>
-                    </td>
-                    {{/each}}
-                </tr>
+    <table class="tools-table">
+        <tbody class="container">
+
+            {{#each tools.toolgroups}}
+            <tr>
+                {{#each this}}
+                <td data-tooltip aria-haspopup="true" class="has-tip top" data-disable-hover="false" title="{{this.description}}">
+                    <a href="{{this.link}}">{{this.name}}</a>
+                </td>
                 {{/each}}
-            </tbody>
-        </table>
-    </div>
+            </tr>
+            {{/each}}
+
+        </tbody>
+    </table>
 
 </section>

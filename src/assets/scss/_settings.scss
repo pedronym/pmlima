@@ -62,7 +62,7 @@ $black: #0a0a0a;
 $white: #fefefe;
 $body-background: $white;
 $body-font-color: $black;
-$body-font-family: 'Lato', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+$body-font-family: 'Raleway', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
@@ -83,7 +83,7 @@ $breakpoints: (
   medium: 410px,
   large: 620px,
   xlarge: 780px,
-  xxlarge: 1080px,
+  xxlarge: 1000px,
 );
 $breakpoint-classes: (small medium large xlarge xxlarge);
 
@@ -116,12 +116,28 @@ $header-sizes: (
     'h6': 16,
   ),
   medium: (
-    'h1': 48,
-    'h2': 40,
+    'h1': 28,
+    'h2': 24,
+    'h3': 23,
+    'h4': 22,
+    'h5': 21,
+    'h6': 20,
+  ),
+  large: (
+    'h1': 32,
+    'h2': 28,
+    'h3': 27,
+    'h4': 26,
+    'h5': 25,
+    'h6': 24,
+  ),
+  xlarge: (
+    'h1': 36,
+    'h2': 32,
     'h3': 31,
-    'h4': 25,
-    'h5': 20,
-    'h6': 16,
+    'h4': 30,
+    'h5': 29,
+    'h6': 28,
   ),
 );
 $header-color: inherit;

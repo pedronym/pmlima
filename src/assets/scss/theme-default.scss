@@ -1,8 +1,10 @@
-// @import url('http://weloveiconfonts.com/api/?family=entypo');
-// /* entypo */
-// [class*="entypo-"]:before {
-//     font-family: 'entypo', sans-serif;
-// }
+@import url('http://weloveiconfonts.com/api/?family=entypo');
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+/* entypo */
+[class*="entypo-"]:before {
+    font-family: 'entypo', sans-serif;
+}
 
 /* VARIABLES */
 $base:           #4B546A;
@@ -60,7 +62,7 @@ a.alt {
 }
 
 .button {
-    transition: background-color 0.3s ease-out;
+    //transition:       background-color 0.3s ease-out;
     color:            $base-off-white !important;
     background-color: $base !important;
 
@@ -71,17 +73,48 @@ a.alt {
 }
 
 .container {
-    @include grid-row;
+    @include grid-col-row(0);
+
+    @include breakpoint(medium) {
+        @include grid-col-row(10);
+    }
+
+    @include breakpoint(large) {
+        @include grid-col-row(20);
+    }
+
+    @include breakpoint(xlarge) {
+        @include grid-col-row(40);
+    }
+
+    @include breakpoint(xxlarge) {
+        @include grid-col-row(200);
+    }
 }
 
 .inner {
-    @include grid-col(12);
+    @include grid-col(12, 10);
+
+    @include breakpoint(medium) {
+        @include grid-col(12, 20);
+    }
+
+    @include breakpoint(xlarge) {
+        @include grid-col(12, 40);
+    }
+
+    // @include breakpoint(xxlarge) {
+    //     @include grid-col(10, 0);
+    //     @include grid-col-end();
+    //     //@include grid-col-off(1);
+    // }
 }
 
 .content-box {
+    @include clearfix;
     width:    100%;
     position: relative;
-    margin:   0;
+    margin:   0 auto;
 }
 
 .inverted {
@@ -91,15 +124,6 @@ a.alt {
 
 .highlight {
     color: $highlight !important;
-}
-
-.intro-downloads {
-    @include button-group-expand(a);
-    margin-top: 2rem;
-
-    @include breakpoint(medium) {
-        @include button-group(a);
-    }
 }
 
 $header-padding: 0.3rem;
@@ -117,44 +141,54 @@ header {
     padding-top:      $header-padding;
     padding-bottom:   $header-padding;
     box-shadow:       2px 2px 2px (0.5, 0.5, 0.5, 0.2);
+
+    .header-wrap {
+        @include grid-col-row(0);
+    }
 }
 
 .header-profile {
-    @include grid-col(12);
+    @include grid-col(12, 10);
+
+    @include breakpoint(medium) {
+        @include grid-col(12, 20);
+    }
 
     @include breakpoint(large) {
         @include grid-col(6);
     }
+
+    @include breakpoint(xlarge) {
+        @include grid-col(7);
+    }
+
     .profile-pic {
-        @include show-for(xlarge);
+        @include show-for(xxlarge);
 
-        @include breakpoint(medium) {
+        @include breakpoint(xlarge) {
             @include grid-col(1, 0);
+        }
 
-            @include breakpoint(large) {
-                @include grid-col(2, 0);
-            }
-
-            img {
-                max-height: 50px;
-                max-width:  50px;
-            }
+        img {
+            max-height: 50px;
+            max-width:  50px;
         }
     }
 
     .header-quote {
-        @include grid-row(12);
+        @include grid-row(12, 10);
 
         @include breakpoint(large) {
-            @include grid-col(10, 0);    
+            text-align: left;
         }
 
         @include breakpoint(xlarge) {
-            @include grid-col(5, 0);
-            @include grid-column-end;
-            float: left;
-            text-align: left;
-            font-size: 1rem;
+            @include grid-col(10, 0);
+            @include grid-column-end();
+
+            padding-left: 1rem;
+            text-align:   left;
+            font-size:    1rem;
         }
 
         font-weight: 500;
@@ -164,36 +198,35 @@ header {
     }
 }
 
-.profile-pic {
-    img {
-        @extend .shadow;
-        border-radius: 50% 50%;
-        width: 100%;
-        height: auto;
-    }
-}
-
 // NAV //
 .header-nav {
-    @include grid-col(6, 0);
     @include show-for(large);
+    @include grid-col(6);
 
+    padding-top:          0.5rem;
     background-color: $base-darker;
-    padding: 0.5rem 0;
+
+    @include breakpoint(xlarge) {
+        @include grid-col(5);
+    }
 
     .header-links {
-        @include grid-col(12);
+        text-align: right;
 
         .header-nav__link {
-            @include grid-col(4, 0);
-            font-size:       0.8rem;
-            color:           $base-light;
+            margin-left:     2rem;
+            font-size:       0.9rem;
+            line-height:     2rem;
+            color:           $base-lighter;
             text-decoration: none;
-            text-align:      center;
 
-            &:hover {
+            &:visited, :hover, :active {
                 color:           $base-white;
                 text-decoration: none;
+            }
+
+            span {
+                margin-right: 0.25rem;
             }
         }
     }
@@ -204,6 +237,15 @@ header {
     // }
 }
 
+.profile-pic {
+    img {
+        @extend .shadow;
+        border-radius: 50% 50%;
+        width:         100%;
+        height:        auto;
+    }
+}
+
 /* INTRO */
 .intro {
     z-index:        $relative-below;
@@ -211,14 +253,12 @@ header {
     padding-bottom: 4rem;
 
     .intro-huge {
-        transition:  color 4s ease-in-out;
-        color:       $base-light;
+        //transition:  color 4s ease-in-out;
         font-weight: 700;
         font-size:   7rem;
         text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
 
         @include breakpoint(480) {
-            font-weight: 400;
             font-size:   10rem;
         }
     }
@@ -228,19 +268,8 @@ header {
     }
 
     .intro-content {
-        @include grid-row;
         z-index:  2;
         position: relative;
-    }
-
-    .intro-text {
-        @include grid-col(12);
-
-        .cv-button {
-            span {
-                margin-right: $global-margin / 4;
-            }
-        }
     }
 
     .intro-over {
@@ -251,63 +280,87 @@ header {
         opacity:   0.05;
         z-index:   $relative-above;
     }
+
+    .intro-downloads {
+        @include space-above(4);
+    }
+
+    .cv-button {
+        @include button-expand(true);
+
+        font-weight: 700;
+        text-transform: uppercase;
+        text-align: left;
+
+        @include breakpoint(large) {
+            @include button-expand(false);
+        }
+
+        small {
+            font-weight: 700;
+            font-size: 0.6rem;
+        }
+
+        span {
+            margin-right: $global-margin / 4;
+        }
+    }
 }
 
 /* EXPERIENCE */
 .workplaces {
     text-align: center;
 
+    @include breakpoint(large) {
+        text-align: left;
+    }
+
     .profile-pic {
         @include grid-col(4);
         @include grid-col-off(4);
+        @include hide-for(large);
 
         margin-top: -50px;
-        margin-bottom: 2rem;
     }
 
     .workplaces-intro {
-        color:            $base-darker;
         background-color: $base-white;
     }
 
-    .workplaces-intro__bottom {
+    .workplaces-intro__top {
         @include space-above(4);
+        @include space-below(4);
     }
 
     .workplaces-wrap {
-        width: 100%;
 
         &:nth-child(even) {
-            background-color: $base-white;
+            background-color: $base-off-white;
         }
 
         &:nth-child(odd) {
-            background-color: $base-off-white;
+            background-color: $base-white;
         }
 
         padding-top:      2rem;
         padding-bottom:   1.5rem;
         color:            $base-dark;
         border-top:       1px solid $base-lighter;
-
-        .workplaces-text {
-            margin-top: 1rem;
-        }
     }
 
     .workplaces-item {
-        @include grid-row(12);
 
         .workplaces-item__title {
-            @include grid-col(12);
         }
 
         .workplaces-item__details {
-            @include grid-col(12);
-
             margin-bottom: 0.3rem;
             font-size:     0.8em;
             color:         $base-medium;
+        }
+
+        .workplaces-text {
+            @include space-above(2);
         }
     }
 }
@@ -321,25 +374,36 @@ header {
     .tools-intro {
         margin-bottom: 2rem;
         text-align: center;
+
+        @include breakpoint(large) {
+            text-align: left;
+        }
     }
 
     p {
-        color:            $base-white;
+        color:         $base-white;
         font-size:     1.4rem;
         font-weight:   300;
     }
 
-    table {
+    .tools-table {
         @include table(none);
-        text-align: center;
+
+        text-align:    center;
         margin-bottom: 0;
+
+        tbody {
+
+        }
 
         td {
             @include grid-col(6);
 
             @include breakpoint(large) {
-                @include grid-col(12);
+                @include grid-col(3);
             }
+
+            padding: 1.5rem 0.625rem 1.625rem !important;
         }
     }
 }
@@ -348,11 +412,19 @@ header {
     padding: 2rem 0;
     text-align: center;
     color: $base-dark;
+
+    @include breakpoint(large) {
+        text-align: left;
+    }
 }
 
 footer {
     padding: 0.5rem 0;
     text-align: center;
+
+    @include breakpoint(large) {
+        text-align: left;
+    }
 
     small {
         font-weight: 500;
