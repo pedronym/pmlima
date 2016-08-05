@@ -1,5 +1,6 @@
 @import url('http://weloveiconfonts.com/api/?family=entypo');
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
 
 /* entypo */
 [class*="entypo-"]:before {
@@ -62,7 +63,7 @@ a.alt {
 }
 
 .button {
-    //transition:       background-color 0.3s ease-out;
+    transition:       background-color 0.3s ease-out;
     color:            $base-off-white !important;
     background-color: $base !important;
 
@@ -102,12 +103,6 @@ a.alt {
     @include breakpoint(xlarge) {
         @include grid-col(12, 40);
     }
-
-    // @include breakpoint(xxlarge) {
-    //     @include grid-col(10, 0);
-    //     @include grid-col-end();
-    //     //@include grid-col-off(1);
-    // }
 }
 
 .content-box {
