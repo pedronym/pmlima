@@ -1,7 +1,6 @@
 'use strict';
 
 (function (win, doc) {
-  console.log('App Running');
 
   function onScroll (ev) {
     var scrollY = $(body).scrollTop();
@@ -11,7 +10,7 @@
 
   var body   = $(doc.body),
       header = $('header'),
-      fixedY = 200;
+      fixedY = 80;
 
   $(win).on('scroll', onScroll);
 

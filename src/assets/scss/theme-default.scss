@@ -1,6 +1,4 @@
 @import url('http://weloveiconfonts.com/api/?family=entypo');
-@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
 
 /* entypo */
 [class*="entypo-"]:before {
@@ -98,7 +96,7 @@ a.alt {
 }
 
 .inner {
-    @include grid-col(12, 10);
+    @include grid-col(12, 20);
 
     @include breakpoint(medium) {
         @include grid-col(12, 20);
@@ -131,7 +129,7 @@ $header-padding: 0.3rem;
 header {
     //@extend .shadow;
     transition:       all 0.3s ease-out;
-    background-color: $base-dark;
+    background-color: none;
     color:            $highlight;
     position:         fixed;
     top:              0;
@@ -153,10 +151,11 @@ header {
         background-color: $base-off-white;
 
         .profile-pic {
-            width:      4.2%;
+            width: 5%;
         }
 
         .header-quote {
+            color:       $base-dark;
             transition:  line-height 0.3s ease-out;
             line-height: 30px;
         }
@@ -180,7 +179,7 @@ header {
     }
 
     @include breakpoint(large) {
-        @include grid-col(6);
+        @include grid-col(7);
     }
 
     @include breakpoint(xlarge) {
@@ -188,7 +187,11 @@ header {
     }
 
     .profile-pic {
-        @include show-for(xxlarge);
+        @include show-for(xlarge);
+
+        @include breakpoint(medium) {
+            @include grid-col(1, 0);
+        }
 
         @include breakpoint(xlarge) {
             @include grid-col(1, 0);
@@ -203,7 +206,12 @@ header {
     .header-quote {
         @include grid-row(12, 10);
 
+        @include breakpoint(medium) {
+            font-size: 1.1rem;
+        }
+
         @include breakpoint(large) {
+            font-size:  1rem;
             text-align: left;
         }
 
@@ -211,8 +219,7 @@ header {
             @include grid-col(10, 0);
             @include grid-column-end();
 
-            padding-left: 1rem;
-            text-align:   left;
+            padding-left: 0.5rem;
             font-size:    1rem;
         }
 
@@ -226,7 +233,7 @@ header {
 // NAV //
 .header-nav {
     @include show-for(large);
-    @include grid-col(6);
+    @include grid-col(5);
 
     padding-top: 0.5rem;
 
@@ -238,7 +245,12 @@ header {
         text-align: right;
 
         .header-nav__link {
-            margin-left:     2rem;
+
+            @include breakpoint(xlarge) {
+                margin-left: 2rem;
+            }
+
+            margin-left:     1rem;
             font-size:       0.9rem;
             line-height:     2rem;
             color:           $base-lighter;
