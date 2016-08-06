@@ -5,6 +5,14 @@
     font-family: 'entypo', sans-serif;
 }
 
+// default: 4B546A
+// brown: #9E7E6A
+// aqua: 45675E
+// earth: 8D9766
+// yellow: 9E936A
+// fb blue: 343A78
+// pink: 94335C
+
 /* VARIABLES */
 $base:           #4B546A;
 $base-white:     lighten($base, 90%);
@@ -46,6 +54,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: $headings-font-family !important;
 }
+
 input {
     &:focus {
         border-color: $base-saturated !important;
@@ -148,7 +157,7 @@ header {
         @extend .shadow;
 
         height: 40px;
-        background-color: $base-off-white;
+        background-color: $base-white;
 
         .profile-pic {
             width: 5%;
@@ -165,7 +174,17 @@ header {
             padding-top: 0;
 
             .header-nav__link {
-                color: $base-dark;
+                color: $base-dark !important;
+
+                &:link, :visited, :active {
+                    color:           $base-dark !important;
+                    text-decoration: none;
+                }
+
+                &:hover {
+                    color:           $highlight !important;
+                    text-decoration: none;
+                }
             }
         }
     }
@@ -253,11 +272,16 @@ header {
             margin-left:     1rem;
             font-size:       0.9rem;
             line-height:     2rem;
-            color:           $base-lighter;
             text-decoration: none;
+            color:           $base-off-white !important;
 
-            &:visited, :hover, :active {
-                color:           $base-white;
+            &:link, :visited, :active {
+                color:           $base-off-white !important;
+                text-decoration: none;
+            }
+
+            &:hover {
+                color:           $highlight !important;
                 text-decoration: none;
             }
 
@@ -282,9 +306,26 @@ header {
 
 /* INTRO */
 .intro {
-    z-index:        $relative-below;
-    padding-top:    4rem;
-    padding-bottom: 4rem;
+    position:         relative;
+    z-index:          $relative-below;
+    padding-top:      4rem;
+    padding-bottom:   4rem;
+
+    .intro-bg {
+        opacity: 0.25;
+        background-image: url("../img/bg2.jpg");
+        position:              absolute;
+        background-attachment: fixed;
+        background-position:   center;
+        background-repeat:     no-repeat;
+        background-size:       cover;
+
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: -1;
+    }
 
     .intro-huge {
         //transition:  color 4s ease-in-out;
@@ -306,13 +347,22 @@ header {
         position: relative;
     }
 
+    .intro-text {
+        @include grid-col(12);
+
+        @include breakpoint(xxlarge) {
+            @include grid-col(10);
+        }
+    }
+
     .intro-over {
-        font-size: 100rem;
-        position:  absolute;
-        right:     0;
-        bottom:    -75rem;
-        opacity:   0.05;
-        z-index:   $relative-above;
+        transition: all 1s ease-out;
+        font-size:  100rem;
+        position:   absolute;
+        right:      0;
+        bottom:     -75rem;
+        opacity:    0.05;
+        z-index:    $relative-above;
     }
 
     .intro-downloads {
