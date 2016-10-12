@@ -14,4 +14,4 @@
 
   $(win).on('scroll', onScroll);
 
-})(window, document)
+}(window, document));

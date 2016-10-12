@@ -2,10 +2,16 @@
     "intro": "",
     "jobs": [
         {
+            "name": "EuroNext",
+            "title": "Senior UI Developer",
+            "description": "Working at Euronext's Porto Hub developing single page applications and web services focused on pioneering the evolution of financial technology.",
+            "date": "October 2016 - Present Day"
+        },
+        {
             "name": "Sonae BIT",
             "title": "Front-End Developer",
-            "description": "Currently working as a front-end developer on the Sonae BIT Digital Channels Team working with several Sonae brands to build modern, fast, scalable, mobile ready websites.",
-            "date": "October 2014 - Present Day"
+            "description": "Worked as a Front-End Developer on the Sonae BIT Digital Channels Team and collaborating with several Sonae brands to build modern, fast, scalable, mobile ready websites.",
+            "date": "October 2014 - September 2016"
         },
         {
             "name": "Sonae SportZone",

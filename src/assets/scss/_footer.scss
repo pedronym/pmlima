@@ -1,0 +1,22 @@
+.closing {
+    padding:    4rem 0;
+    text-align: center;
+    color:      $base-dark;
+
+    @include breakpoint(large) {
+        text-align: left;
+    }
+}
+
+footer {
+    padding: 0.5rem 0;
+    text-align: center;
+
+    @include breakpoint(large) {
+        text-align: left;
+    }
+
+    small {
+        font-weight: 500;
+    }
+}

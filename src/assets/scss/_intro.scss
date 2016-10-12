@@ -1,0 +1,90 @@
+/* INTRO */
+.intro {
+    position:         relative;
+    z-index:          $relative-below;
+    padding-top:      4rem;
+    padding-bottom:   4rem;
+
+    .intro-bg {
+        opacity: 0.25;
+        background-image: url("../img/bg2.jpg");
+        position:              absolute;
+        background-attachment: fixed;
+        background-position:   center;
+        background-repeat:     no-repeat;
+        background-size:       cover;
+
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: -1;
+    }
+
+    .intro-huge {
+        //transition:  color 4s ease-in-out;
+        font-weight: 700;
+        font-size:   7rem;
+        text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+
+        @include breakpoint(480) {
+            font-size:   10rem;
+        }
+    }
+
+    h3 {
+        color: $base-lighter;
+    }
+
+    .intro-content {
+        z-index:  2;
+        position: relative;
+    }
+
+    .intro-text {
+        @include grid-col(12);
+
+        @include breakpoint(xxlarge) {
+            @include grid-col(10);
+        }
+    }
+
+    .intro-over {
+        transition: all 1s ease-out;
+        font-size:  100rem;
+        position:   absolute;
+        right:      0;
+        bottom:     -75rem;
+        opacity:    0.05;
+        z-index:    $relative-above;
+    }
+
+    .intro-downloads {
+        @include space-above(4);
+    }
+
+    .cv-button {
+        @include button-expand(true);
+
+        font-weight: 700;
+        text-transform: uppercase;
+        text-align: left;
+
+        &:hover {
+            color: $base-white !important;
+        }
+
+        @include breakpoint(large) {
+            @include button-expand(false);
+        }
+
+        small {
+            font-weight: 700;
+            font-size: 0.6rem;
+        }
+
+        span {
+            margin-right: $global-margin / 4;
+        }
+    }
+}

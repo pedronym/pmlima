@@ -1,0 +1,169 @@
+$header-padding: 0.3rem;
+
+/* HEADER */
+header {
+    //@extend .shadow;
+    transition:       all 0.3s ease-out;
+    background-color: none;
+    color:            $highlight;
+    position:         fixed;
+    top:              0;
+    width:            100%;
+    height:           60px;
+    z-index:          $header-z;
+    padding-top:      $header-padding;
+    padding-bottom:   $header-padding;
+    box-shadow:       2px 2px 2px (0.5, 0.5, 0.5, 0.2);
+
+    .header-wrap {
+        @include grid-col-row(0);
+    }
+
+    &.fixed {
+        @extend .shadow;
+
+        height: 40px;
+        background-color: $base-white;
+
+        .profile-pic {
+            margin-top: 0.1rem;
+
+            img {
+                max-width: 30px;
+                max-height: 30px;
+            }
+        }
+
+        .header-quote {
+            color:       $base-dark;
+            transition:  line-height 0.3s ease-out;
+            line-height: 30px;
+        }
+
+        .header-nav {
+            transition:  padding 0.3s ease-out;
+            padding-top: 0;
+
+            .header-nav__link {
+                color: $base-dark !important;
+
+                &:link, :visited, :active {
+                    color:           $base-dark !important;
+                    text-decoration: none;
+                }
+
+                &:hover {
+                    color:           $highlight !important;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+.header-profile {
+    @include grid-col(12, 80);
+
+    @include breakpoint(large) {
+        @include grid-col(7);
+    }
+
+    @include breakpoint(xlarge) {
+        @include grid-col(7);
+    }
+
+    .profile-pic {
+        @include show-for(large);
+        float: left;
+
+        img {
+            max-height: 45px;
+            max-width:  45px;
+        }
+    }
+
+    .header-quote {
+        float: none;
+        font-weight: 500;
+        text-align: center;
+        font-size:   0.9rem;
+        line-height: 45px;
+
+        @include breakpoint(medium) {
+            float: left;
+            font-size: 1rem;
+            text-align: left;
+        }
+
+        @include breakpoint(large) {
+            font-size: 0.9rem;
+            margin-left: 0.9rem;
+        }
+    }
+}
+
+// NAV //
+.header-nav {
+    @include show-for(large);
+    @include grid-col(5);
+
+    padding-top: 0.5rem;
+
+    @include breakpoint(large) {
+        @include grid-col(5);
+        padding-top: 0.3rem;
+    }
+
+    @include breakpoint(xlarge) {
+        @include grid-col(5);
+        padding-top: 0.3rem;
+    }
+
+    .header-links {
+        text-align: right;
+
+        .header-nav__link {
+
+            @include breakpoint(large) {
+                font-size: 1.4rem;
+                margin-left: 1.6rem;
+            }
+
+            @include breakpoint(xxlarge) {
+                font-size: 0.9rem;
+            }
+
+            margin-left:     1rem;
+            font-size:       0.9rem;
+            line-height:     2rem;
+            text-decoration: none;
+            color:           $base-off-white !important;
+
+            &:link, :visited, :active {
+                color:           $base-off-white !important;
+                text-decoration: none;
+            }
+
+            &:hover {
+                color:           $highlight !important;
+                text-decoration: none;
+            }
+
+            .header-link__text {
+                @include show-for(xxlarge);
+                margin-left: 0.3rem;
+            }
+        }
+    }
+}
+
+.profile-pic {
+    transition: width 0.3s ease-out;
+
+    img {
+        @extend .shadow;
+        border-radius: 50% 50%;
+        width:         100%;
+        height:        auto;
+    }
+}

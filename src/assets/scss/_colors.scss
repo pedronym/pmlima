@@ -1,0 +1,18 @@
+$teal: #4B546A;
+$mint: #43645F;
+$lime: #63865A;
+$sand: #9F976B;
+$crimson: #9F816B;
+$blue: #113F6B;
+
+/* VARIABLES */
+$base:           $teal;
+$base-white:     lighten($base, 90%);
+$base-off-white: lighten($base, 60%);
+$base-lighter:   lighten($base, 50%);
+$base-light:     lighten($base, 20%);
+$base-medium:    lighten($base, 10%);
+$base-dark:      darken($base, 20%);
+$base-darker:    darken($base, 22%);
+$base-saturated: adjust-color($base-medium, $saturation: 80%, $lightness: 15%);
+$highlight:      adjust-hue($base-saturated, 140deg);

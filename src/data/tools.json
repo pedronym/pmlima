@@ -1,5 +1,5 @@
 {
-    "text": "My interests revolve around designing, maintaining and perfecting the user interaction side of applications and websites. Usually I work with a HTML/CSS/JavaScript stack that involves common tools such as:",
+    "text": "My interests revolve around designing, maintaining and perfecting the user interaction side of applications and websites. I usually work with a HTML/CSS/JavaScript stack that involves common tools such as:",
     "toolgroups": [
         [
             {
@@ -84,9 +84,9 @@
                 "link": "http://www.dustjs.com/"
             },
             {
-                "name": "Pug",
-                "description": "Pug is a high performance template engine heavily influenced by Haml and implemented with JavaScript for Node.js and browsers.",
-                "link": "http://jade-lang.com/"
+                "name": "VueJs",
+                "description": "Vue is a progressive framework for building user interfaces. Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable.",
+                "link": "https://vuejs.org/"
             }
         ],
         [
