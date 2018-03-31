@@ -6,53 +6,53 @@
     @include breakpoint(large) {
         text-align: left;
     }
+}
 
-    .profile-pic {
-        @include grid-col(4);
-        @include grid-col-off(4);
-        @include hide-for(large);
+.profile-pic {
+    @include grid-col(4);
+    @include grid-col-off(4);
+    @include hide-for(large);
 
-        margin-top: -50px;
+    margin-top: -50px;
+}
+
+.workplaces-intro {
+    background-color: $base-white;
+}
+
+.workplaces-intro__top {
+    @include space-above(4);
+    @include space-below(4);
+}
+
+.workplaces-wrap {
+
+    &:nth-child(even) {
+        background-color: $base-off-white;
     }
 
-    .workplaces-intro {
+    &:nth-child(odd) {
         background-color: $base-white;
     }
 
-    .workplaces-intro__top {
-        @include space-above(4);
-        @include space-below(4);
+    padding-top:      2rem;
+    padding-bottom:   1.5rem;
+    color:            $base-dark;
+    border-top:       1px solid $base-lighter;
+}
+
+.workplaces-item {
+
+    .workplaces-item__title {
     }
 
-    .workplaces-wrap {
-
-        &:nth-child(even) {
-            background-color: $base-off-white;
-        }
-
-        &:nth-child(odd) {
-            background-color: $base-white;
-        }
-
-        padding-top:      2rem;
-        padding-bottom:   1.5rem;
-        color:            $base-dark;
-        border-top:       1px solid $base-lighter;
+    .workplaces-item__details {
+        margin-bottom: 0.3rem;
+        font-size:     0.8em;
+        color:         $base-medium;
     }
 
-    .workplaces-item {
-
-        .workplaces-item__title {
-        }
-
-        .workplaces-item__details {
-            margin-bottom: 0.3rem;
-            font-size:     0.8em;
-            color:         $base-medium;
-        }
-
-        .workplaces-text {
-            @include space-above(2);
-        }
+    .workplaces-text {
+        @include space-above(2);
     }
 }

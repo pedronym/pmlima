@@ -2,10 +2,16 @@
     "intro": "",
     "jobs": [
         {
+            "name": "iMedicare",
+            "title": "Senior Front-End Engineer",
+            "description": "Working for iMedicare building and maintaining large scale web apps used by pharmacies. Using Ember with EMBL templates and SASS styling.",
+            "date": "March 2017 - Present Day"
+        },
+        {
             "name": "EuroNext",
             "title": "Senior UI Developer",
             "description": "Working at Euronext's Porto Hub developing single page applications and web services focused on pioneering the evolution of financial technology.",
-            "date": "October 2016 - Present Day"
+            "date": "October 2016 - February 2017"
         },
         {
             "name": "Sonae BIT",
