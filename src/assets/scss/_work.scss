@@ -8,16 +8,16 @@
     }
 }
 
-.profile-pic {
-    @include grid-col(4);
-    @include grid-col-off(4);
-    @include hide-for(large);
-
-    margin-top: -50px;
-}
-
 .workplaces-intro {
     background-color: $base-white;
+
+    .profile-pic {
+        @include grid-col(4);
+        @include grid-col-off(4);
+        @include hide-for(large);
+
+        margin-top: -50px;
+    }
 }
 
 .workplaces-intro__top {

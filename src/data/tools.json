@@ -57,9 +57,9 @@
                 "link": "http://foundation.zurb.com/"
             },
             {
-                "name": "Skeleton",
-                "description": "A dead simple, responsive boilerplate.",
-                "link": "http://getskeleton.com/"
+                "name": "Bulma",
+                "description": "A modern CSS Framework based on Flexbox.",
+                "link": "http://bulma.io/"
             },
             {
                 "name": "Neat",
@@ -81,7 +81,7 @@
             {
                 "name": "React",
                 "description": "A JavaScript library for building user interfaces.",
-                "link": "https://facebook.github.io/react/"
+                "link": "https://reactjs.org"
             },
             {
                 "name": "VueJs",

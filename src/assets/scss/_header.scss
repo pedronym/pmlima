@@ -29,15 +29,18 @@ header {
             margin-top: 0.1rem;
 
             img {
-                max-width: 30px;
-                max-height: 30px;
+                transform: scale(0.75) translateY(-12px);
             }
         }
 
         .header-quote {
             color:       $base-dark;
-            transition:  line-height 0.3s ease-out;
             line-height: 30px;
+            transform: translateX(8px);
+
+            @include breakpoint(large) {
+                transform: translateX(-5px);
+            }
         }
 
         .header-nav {
@@ -62,10 +65,10 @@ header {
 }
 
 .header-profile {
-    @include grid-col(12, 55);
+    @include grid-col(12, 15);
 
     @include breakpoint(medium) {
-        @include grid-col(12, 75);
+        @include grid-col(12, 25);
     }
 
     @include breakpoint(large) {
@@ -77,32 +80,39 @@ header {
     }
 
     .profile-pic {
-        //@include show-for(large);
+    //@include show-for(large);
         float: left;
 
         img {
+            transition: transform 0.3s;
+            transform: translateX(0px);
             max-height: 45px;
             max-width:  45px;
         }
     }
+}
 
-    .header-quote {
-        float: none;
-        font-weight: 500;
+.header-quote {
+    transform: translateX(18px);
+    transition: transform 0.3s ease-out;
+
+    float: none;
+    font-weight: 500;
+    text-align: left;
+    font-size:   0.9rem;
+    line-height: 45px;
+
+    @include breakpoint(medium) {
+        float: left;
+        font-size: 1rem;
         text-align: left;
-        font-size:   0.9rem;
-        line-height: 45px;
+        transform: translateX(15px);
+    }
 
-        @include breakpoint(medium) {
-            float: left;
-            font-size: 1rem;
-            text-align: left;
-        }
-
-        @include breakpoint(large) {
-            font-size: 0.9rem;
-            margin-left: 0.9rem;
-        }
+    @include breakpoint(large) {
+        font-size: 0.9rem;
+        margin-left: 0.9rem;
+        transform: translateX(0px);
     }
 }
 
@@ -126,38 +136,38 @@ header {
 
 .header-links {
     text-align: right;
+}
 
-    .header-nav__link {
+.header-nav__link {
 
-        @include breakpoint(large) {
-            font-size: 1.4rem;
-            margin-left: 1.6rem;
-        }
+    @include breakpoint(large) {
+        font-size: 1.4rem;
+        margin-left: 1.6rem;
+    }
 
-        @include breakpoint(xxlarge) {
-            font-size: 0.9rem;
-        }
+    @include breakpoint(xxlarge) {
+        font-size: 0.9rem;
+    }
 
-        margin-left:     1rem;
-        font-size:       0.9rem;
-        line-height:     2rem;
-        text-decoration: none;
+    margin-left:     1rem;
+    font-size:       0.9rem;
+    line-height:     2rem;
+    text-decoration: none;
+    color:           $base-off-white !important;
+
+    &:link, :visited, :active {
         color:           $base-off-white !important;
+        text-decoration: none;
+    }
 
-        &:link, :visited, :active {
-            color:           $base-off-white !important;
-            text-decoration: none;
-        }
+    &:hover {
+        color:           $highlight !important;
+        text-decoration: none;
+    }
 
-        &:hover {
-            color:           $highlight !important;
-            text-decoration: none;
-        }
-
-        .header-link__text {
-            @include show-for(xxlarge);
-            margin-left: 0.3rem;
-        }
+    .header-link__text {
+        @include show-for(xxlarge);
+        margin-left: 0.3rem;
     }
 }
 

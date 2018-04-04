@@ -1,7 +1,7 @@
 @charset 'utf-8';
 @import 'settings';
 @import 'foundation';
-@import 'motion-ui';
+// @import 'motion-ui';
 @import 'theme-default';
 
 @include foundation-global-styles;
@@ -18,7 +18,7 @@
 @include foundation-button-group;
 //@include foundation-callout;
 //@include foundation-close-button;
-@include foundation-menu;
+// @include foundation-menu;
 //@include foundation-menu-icon;
 //@include foundation-drilldown-menu;
 //@include foundation-dropdown;
