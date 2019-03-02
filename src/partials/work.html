@@ -27,6 +27,12 @@
         <div class="workplaces-wrap">
             <div class="container">
                 <div class="workplaces-item inner">
+                    
+                    {{#if this.image}}
+                        <div class="workplaces-item__image">
+                            <img src="{{this.image}}" alt={{this.name}} />
+                        </div>
+                    {{/if}}
 
                     <div class="workplaces-item__title">
                         <h1><a href="{{this.link}}" target="_blank">{{this.name}}</a></h1>

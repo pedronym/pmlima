@@ -8,11 +8,18 @@
     h3 {
         color: $base-lighter;
     }
+
+    .container {
+        @include breakpoint(xxlarge) {
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+        }
+    }
 }
 
 .intro-bg {
     opacity: 0.25;
-    background-image: url("../img/bg2.jpg");
+    background-image: url("../img/bg.jpg");
     position:              absolute;
     background-attachment: fixed;
     background-position:   center;
